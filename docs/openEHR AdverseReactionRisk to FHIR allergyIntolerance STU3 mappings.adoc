@@ -23,17 +23,14 @@ endif::[]
 
 - `id` (logical resource identifier)
 - `text` (This will be generated narrative from concatenated structured data below)
+
 - `clinicalStatus`
 - `verificationStatus`
 - `type`
 - `category`
 - `criticality`
 
-- `code.text`
-- `code.coding.code`
-- `code.coding.system`
-- `code.coding.display`
-- `code.coding.userSelected`
+- `code` - Mandatory
 
 - `patient.reference` - Mandatory
 - `patient.identifier`- Mandatory
@@ -42,32 +39,18 @@ endif::[]
 
 - `onset.onsetDateTime`
 
-- `recorder.identifier`
-- `recorder.display`
+- `recorder`
 
 - `lastOccurence`
 - `note`
 
-- `reaction.substance.text` - Mandatory
-- `reaction.substance.coding.code`
-- `reaction.substance.coding.system`
-- `reaction.substance.coding.display`
-- `reaction.substance.coding.userSelected`
-
-- `reaction.manifestation.text`
-- `reaction.manifestation.coding.code`
-- `reaction.manifestation.coding.system`
-- `reaction.manifestation.coding.display`
-- `reaction.manifestation.coding.userSelected`
+- `reaction.manifestation`
 
 - `reaction.description`
 - `reaction.onset`
 
-- `reaction.exposureRoute.text`
-- `reaction.exposureRoute.coding.code`
-- `reaction.exposureRoute.coding.system`
-- `reaction.exposureRoute.coding.display`
-- `reaction.exposureRoute.coding.userSelected`
+- `reaction.exposureRoute`
+-
 
 
 ===  Operation: `search`
@@ -88,23 +71,6 @@ The AllergyIntolerance profile should emit a conformance statement on request vi
 /metadata resource - it is expected that the default handling provided by the HAPI-FHIR stack should be sufficient for this purpose.
 
 see http://hapifhir.io/doc_rest_operations.html (Conformance)
-
-== Specific requirements for AllergyIntolerance
-
-1. Compile and run demonstrator HAPI-FHIR Restful Server(https://github.com/jamesagnew/hapi-fhir/tree/master/restful-server-example) Docs at http://hapifhir.io/doc_rest_server.html
-
-=== 'read' operation
-
-2. Add simple AllergyIntolerance stub resource support by defining a RestfulAllergyResourceProvider with minimum support for the read operation and extending the parent RestfulServer (see Create a Server).
-3. Test that the minimal allergyIntolerance resource is being returned and populated correctly. Suggest just adding patient/reference and code.text
-4. Test that the conformance /metadata resource shows support for `read AllergyIntolerance'
-5. Populate FHIR AllergyIntolerance resource from a hard-wired example AQL resultSet.
-6. Test that FHIR AllergyIntoleranceResource is correctly returned from dummy AQL resultSet.
-7. Add correct openEHR Ehrscape POST/query call which returns the AQL resultSet, using Basic Authorisation. Current openEHR allergy records will not have a uid associated with each openEHR allergyRecord so this will need to be synthesised to be returned as the AllergyIntolerance logicalId.
-8. Test that correct allergyIntolerance resource is retrieved.
-9. Add support for the narrative `text` element. See - http://hapifhir.io/doc_narrative.html. Ian will advise on appropriate generation and supply an appropriate  Thymeleaf Template.
-10. Test that valid narrative is being generated.
-
 
 ==== FHIR node: Ignored FHIR Care-connect extension nodes
 
@@ -183,9 +149,12 @@ The clinical status of the allergy or intolerance..
 openEHR AQL node::
 - `Status_code_string` => `allergyIntolerance.clinicalStatus`
 
+Datatype Mapping style::
+
+DV_CODED_TEXT => Code
+
 Valueset mappings::
-- `at0127::Suspected`, `at0064::Likely`, `at0065::Confirmed` => `active`
-- `at0067::Resolved` => `resolved`
+- **always map to**  => `active`
 
 ==== FHIR node:: `allergyIntolerance.verificationStatus`
 
@@ -193,12 +162,15 @@ FHIR Description::
 Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
 
 openEHR AQL node::
-- `Status_code_string` => `allergyIntolerance.verificationStatus`
+- `Status` => `allergyIntolerance.verificationStatus`
+
+Datatype Mapping style::
+
+DV_CODED_TEXT => Code
 
 Valueset mappings::
-- `at0127::Suspected`, `at0064::Likely` => `unconfirmed`
+- `at0127::Suspected` => `unconfirmed` **(default)**
 - `at0065::Confirmed` => `confirmed`
-- `at0066::Refuted` => `refuted`
 
 NOTE: If the openEHR node is unpopulated default to `unconfirmed`
 
@@ -208,7 +180,11 @@ FHIR Description::
 Underlying mechanism (if known).
 
 openEHR AQL node::
-- `Reaction_mechanism_code_string` => `allergyIntolerance.type`
+- `Reaction_mechanism` => `allergyIntolerance.type`
+
+Datatype Mapping style::
+
+DV_CODED_TEXT => Code
 
 Valueset mappings::
 
@@ -221,10 +197,14 @@ NOTE: If the openEHR value is `at0126::Indeterminate` then this node should not 
 ==== FHIR node:: `allergyIntolerance.category`
 
 FHIR Description::
-Underlying mechanism (if known).
+ Category of an identified Substance.
 
 openEHR AQL node::
-- `Reaction_mechanism_code_string` => `allergyIntolerance.type`
+- `Reaction_mechanism` => `allergyIntolerance.type`
+
+Datatype Mapping::
+
+DV_CODED_TEXT => Code
 
 Valueset mappings::
 
@@ -236,11 +216,15 @@ Valueset mappings::
 ==== FHIR node:: `allergyIntolerance.criticality`
 
 FHIR Description::
-
+Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance
 
 openEHR AQL node::
 
-- `Criticality_code_string` => `allergyIntolerance.criticality`
+- `Criticality` => `allergyIntolerance.criticality`
+
+Datatype Mapping::
+
+DV_CODED_TEXT => Code
 
 Valueset mappings::
 
@@ -251,34 +235,25 @@ Valueset mappings::
 ==== FHIR node: `allergyIntolerance.code`
 
 FHIR Description::
-The Code that identifies the allergy or intolerance.
+The Code that identifies the allergy or intolerance. Called Causative Agent in openEHR
 
 openEHR AQL node::
 
-- `Causative_agent_value` => `allergyIntolerance.code.text`
+- `Causative_agent` => `allergyIntolerance.code`
 
-//Detect if this is a coded text and not simple text
+Datatype mapping::
 
-
-if (Causative_agent_code_string is not null) then {
-Causative_agent_value=> allergyIntolerance.code.coding.display
-Causative_agent_code_string => allergyIntolerance.code.coding.code
-Causative_agent_terminology_id => allergyIntolerance.code.coding.system
-}
-==== FHIR node:
-If more than one coding exists choose the one where userSelected=True
+DV_TEXT => CodeableConcept
 
 Valueset mappings::
 
-Causative_agent_terminology_id` => `allergyIntolerance.code.coding.system
 See dfText.jar for code example
-
 
 - `SNOMED-CT` => `http://snomed.info/sct`
 - `LOINC` => `http://loinc.org`
 
 
-==== FHIR node: FHIR name: `allergyIntolerance.patient`
+==== FHIR name: `allergyIntolerance.patient`
 
 FHIR Description::
 Who the sensitivity is for.
@@ -297,21 +272,6 @@ Valueset mappings::
 NOTE: We are using the patient's openEHR `ehrId` as the `id` of the FHIR `patient` resource, and using the patient's NHS Number, carried in the openEHR 'ehr' object as `subjectId` as the patient identifier.
 If the subjectNamespace is not `uk.nhs.nhs_number`, it should not be amapped to `https://fhir.nhs.uk/Id/nhs-number` but simply passed through unchanged.
 
-=== `allergyIntolerance.patient`
-
-FHIR Description::  - Who the sensitivity is for.
-
-openEHR AQL node::
-
-- `ehrId` => `allergyIntolerance.patient.reference`
-
-- `subjectId` => `allergyIntolerance.patient.identifier.value`
-- `subjectNamespace` => `allergyIntolerance.patient.identifier.system`
-
-Valueset mappings::
-
-- `subjectNamespace` => `allergyIntolerance.patient.identifier.system`
-- `uk.nhs.nhs_number` => `https://fhir.nhs.uk/Id/nhs-number`
 
 === `allergyIntolerance.lastOccurence`
 
@@ -331,6 +291,10 @@ openEHR AQL node::
 
 `Adverse_reaction_risk_Last_updated` => `allergyIntolerance.assertedDate`
 
+Datatype mapping::
+
+DV_DATE_TIME => dateTime
+
 Valueset mappings:: None
 
 ==== FHIR node: `allergyIntolerance.note`
@@ -339,7 +303,12 @@ FHIR Description::  - Additional text not captured in other fields.
 
 openEHR AQL node::
 
-`Comment` => `allergyIntolerance.note`
+`Comment` => `allergyIntolerance.note.text`
+
+
+Datatype mapping::
+
+DV_TEXT => Annotation.
 
 Valueset mappings:: None
 
@@ -350,16 +319,6 @@ FHIR Description::  - Specific substance or pharmaceutical product considered to
 openEHR AQL node::
 
 `Specific_substance_value` => `allergyIntolerance.reaction.substance.text`
-
-----
-//Detect if this is a coded text and not simple text
-if (Specific_substance_code_string is not null) then {
-Specific_substance_value => allergyIntolerance.reaction.substance.coding.display
-Specific_substance_code_string => allergyIntolerance.reaction.substance.coding.code
-Specific_substance_terminology_id => allergyIntolerance.reaction.substance.coding.system
-}
-----
-If more than one coding exists choose the one where `userSelected=True`
 
 Valueset mappings::
 
@@ -377,14 +336,9 @@ openEHR AQL node::
 
 `Manifestation_value` => `allergyIntolerance.reaction.manifestation.text`
 
-```
-//Detect if this is a coded text and not simple text
-if (Manifestation_code_string is not null) then {
-Manifestation_value => `allergyIntolerance.reaction.manifestation.coding.display
-Manifestation_code_string => allergyIntolerance.reaction.manifestation.coding.code
-Manifestation_terminology_id => allergyIntolerance.reaction.manifestation.coding.system /}
-```
-If more than one coding exists choose the one where `userSelected=True`
+Datatype mapping::
+
+DV_TEXT => CodeableConcept
 
 Valueset mappings::
 
@@ -401,7 +355,11 @@ FHIR Description::  - Description of the event as a whole.
 
 openEHR AQL node::
 
-`Reaction_description` => `allergyIntolerance.reaction.manifestation.text`
+`Reaction_description` => `allergyIntolerance.reaction.description`
+
+Datatype mapping::
+
+DV_TEXT => String
 
 Valueset mappings:: None
 
@@ -415,41 +373,23 @@ openEHR AQL node::
 
 Valueset mappings:: None
 
-==== FHIR node: `allergyIntolerance.reaction.allergySeverity(Care-connect Extension)`
+==== FHIR node: `allergyIntolerance.reaction.severity`
 
 FHIR Description::  - - Severity of the event as a whole.
 
 openEHR AQL node::
 
-`Severity_code_string` => `allergyIntolerance.reaction.severity.coding.code`
-`Severity_terminology_id` => `allergyIntolerance.reaction.severity.coding.system`
+`Severity` => `allergyIntolerance.reaction.severity`
 
+Datatype mapping::
+
+DV_CODED_TEXT => Code
 
 Valueset mappings::
-
-openEHR {terminologyId}::{code_string}| {value} => FHIR {system}::code| display
 
 `local::at0093| Mild`  => `mild`
 `local::at0092| Moderate` =>`moderate`
 `local::at0090| Severe` => `severe`
-
-==== FHIR node: `allergyIntolerance.reaction.allergyCertainty (Care-connect Extension)`
-
-FHIR Description::  - - Severity of the event as a whole.
-
-openEHR AQL node::
-
-`Certainty_code_string` => `allergyIntolerance.reaction.allergyCertainty.coding.code`
-`Certainty_terminology_id` => `allergyIntolerance.reaction.allergyCertainty.coding.system`
-
-Valueset mappings::
-
-openEHR {terminologyId}::{code_string}| {value} => FHIR {system}::code| display
-
-`local::at0095| Suspected`  => `http://snomed.info/sct::1491118016| Unlikely`
-`local::at0023| Likely` => `http://snomed.info/sct::5961011| Likely`
-`local::at0118| Confirmed` => `http://snomed.info/sct::410605003|Confirmed present`
-
 
 
 ==== FHIR node: `allergyIntolerance.reaction.exposureRoute`
@@ -459,15 +399,10 @@ FHIR Description::  - How the subject was exposed to the substance.
 openEHR AQL node::
 
 `Route_of_exposure_value` => `allergyIntolerance.reaction.exposureRoute`
-----
-//Detect if this is a coded text and not simple text
-if (Route_of_exposure_code_string is not null) then {
-Route_of_exposure_value => `allergyIntolerance.reaction.exposureRoute.coding.display
-Route_of_exposure_code_string => `allergyIntolerance.reaction.exposureRoute.coding.code`
-Route_of_exposure_terminology_id => allergyIntolerance.reaction.exposureRoute.coding.system
-}
-----
-If more than one coding exists choose the one where `userSelected=True`
+
+Datatype mapping::
+
+DV_TEXT => CodeableConcept
 
 Valueset mappings::
 
@@ -483,6 +418,10 @@ FHIR Description::  - Date(/time) when manifestations showed.
 
 openEHR AQL node::
 
-`Adverse_reaction_risk_Comment` => `allergyIntolerance.reaction.note`
+`Adverse_reaction_risk_Comment` => `allergyIntolerance.note.text`
+
+Datatype mapping::
+
+DV_TEXT => Annotation
 
 Valueset mappings:: None
