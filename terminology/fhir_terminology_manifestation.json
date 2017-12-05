@@ -1,0 +1,98 @@
+{
+    "resourceType": "ValueSet",
+    "id": "fhir_sct_vs_645839213000345",
+    "url": "http://its.patientsfirst.org.nz/ValueSet/sct/fhir_sct_vs_645839213000345",
+    "version": "http://snomed.info/sct?version=http://snomed.info/sct/900000000000207008/version/20170731",
+    "name": "SNOMED CT Reference Set: 645839213000345",
+    "status": "draft",
+    "experimental": true,
+    "date": "2017-12-04",
+    "publisher": "Patients First Ltd",
+    "contact": [
+        {
+            "telecom": [
+                {
+                    "system": "email",
+                    "value": "peter.jordan@patientsfirst.org.nz"
+                }
+            ]
+        }
+    ],
+    "description": "All SNOMED CT codes in the Reference Set: 645839213000345",
+    "copyright": "copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO)",
+    "extensible": false,
+    "expansion": {
+        "identifier": "urn:uuid:et55312a-456t-8bfe-ase9-s15d987654e9",
+        "timestamp": "2017-12-04",
+        "total": 11,
+        "offset": 0,
+        "parameter": [
+            {
+                "name": "expansion-source",
+                "valueString": "http://its.patientsfirst.org.nz/ValueSet/sct/fhir_sct_vs_645839213000345"
+            },
+            {
+                "name": "version",
+                "valueUri": "http://snomed.info/sct?version=http://snomed.info/sct/900000000000207008/version/20170731"
+            }
+        ],
+        "contains": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "422400008",
+                "display": "Vomiting"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "21626009",
+                "display": "Allergic skin rash"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "49727002",
+                "display": "Cough"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "267036007",
+                "display": "Breathlessness"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "404640003",
+                "display": "Dizziness"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "418363000",
+                "display": "Pruritus"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "62315008",
+                "display": "Diarrhoea"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "21522001",
+                "display": "Abdominal pain"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "40917007",
+                "display": "Confusion"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "41291007",
+                "display": "Angioedema"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "422587007",
+                "display": "Nausea"
+            }
+
+        ]
+    }
+}

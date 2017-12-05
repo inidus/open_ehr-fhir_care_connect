@@ -1,0 +1,98 @@
+{
+    "resourceType": "ValueSet",
+    "id": "fhir_sct_vs_543912000512987",
+    "url": "http://its.patientsfirst.org.nz/ValueSet/sct/fhir_sct_vs_543912000512987",
+    "version": "http://snomed.info/sct?version=http://snomed.info/sct/900000000000207008/version/20170731",
+    "name": "SNOMED CT Reference Set: 543912000512987",
+    "status": "draft",
+    "experimental": true,
+    "date": "2017-12-04",
+    "publisher": "inidus",
+    "contact": [
+        {
+            "telecom": [
+                {
+                    "system": "email",
+                    "value": "hildi.franke@inidus.com"
+                }
+            ]
+        }
+    ],
+    "description": "All SNOMED CT codes in the Reference Set: 543912000512987",
+    "copyright": "copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO)",
+    "extensible": false,
+    "expansion": {
+        "identifier": "urn:uuid:cf33456c-921a-6oer-pop7-f32b737658d5",
+        "timestamp": "2017-12-04",
+        "total": 11,
+        "offset": 0,
+        "parameter": [
+            {
+                "name": "expansion-source",
+                "valueString": "http://its.patientsfirst.org.nz/ValueSet/sct/fhir_sct_vs_543912000512987"
+            },
+            {
+                "name": "version",
+                "valueUri": "http://snomed.info/sct?version=http://snomed.info/sct/900000000000207008/version/20170731"
+            }
+        ],
+        "contains": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "373270004",
+                "display": "Penicillin -class of antibiotic-"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372694001",
+                "display": "Erythromycin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387458008",
+                "display": "Aspirin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "227146005",
+                "display": "Shellfish - dietary"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "33396006",
+                "display": "Nickel"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "13577000",
+                "display": "Nut"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "111088007",
+                "display": "Latex"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "288328004",
+                "display": "Bee venom"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "260147004",
+                "display": "House dust mite"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "23988000",
+                "display": "Mould spore"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "41355003",
+                "display": "Ultraviolet radiation"
+            }
+
+        ]
+    }
+}
