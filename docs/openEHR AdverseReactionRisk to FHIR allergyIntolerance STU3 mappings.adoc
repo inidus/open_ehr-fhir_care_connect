@@ -1,7 +1,8 @@
 == openEHR AdverseReactionRisk to FHIR allergyIntolerance STU3 mappings
 Ian McNicoll <ian@inidus.com>
-v1.0.1, 19-Nov-2017
-// Add support for Github icons
+v1.1.0, 05-Dec-2017
+// v1.0.1  -Add support for Github icons
+// v1.1.0 - corrected typo in AQL
 
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -107,7 +108,7 @@ select
     b_a/data[at0001]/items[at0101]/value/defining_code/code_string as Criticality_code,
     b_a/data[at0001]/items[at0120]/value/defining_code/code_string as Category_code,
     b_a/data[at0001]/items[at0117]/value/value as Onset_of_last_reaction,
-    b_a/data[at0001]/items[at0058]/valuedefining_code/code_string as Reaction_mechanism_code,
+    b_a/data[at0001]/items[at0058]/value/defining_code/code_string as Reaction_mechanism_code,
     b_a/data[at0001]/items[at0006]/value/value as Comment,
     b_a/protocol[at0042]/items[at0062]/value/value as Adverse_reaction_risk_Last_updated,
     b_a/data[at0001]/items[at0009]/items[at0010]/value as Specific_substance,
@@ -145,6 +146,7 @@ openEHR AQL node::  `compositionId`+ '_' + `entryId`
 Valueset mappings:: None
 
 NOTE: The FHIR id is constructed by a concatenation of the openEHR `compositionId` and `entryId` as above.
+If `entryID` is null, simply send the `compositionID`. `entryID` is currently not supported by Ethercis.
 
 ==== FHIR node:: `allergyIntolerance.clinicalStatus`
 
