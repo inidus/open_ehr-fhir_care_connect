@@ -187,7 +187,7 @@ FHIR Description::
 Underlying mechanism (if known).
 
 openEHR AQL node::
-- `Reaction_mechanism` => `allergyIntolerance.type`
+- `Reaction_mechanism_code` => `allergyIntolerance.type`
 
 Datatype Mapping style::
 
@@ -207,7 +207,7 @@ FHIR Description::
  Category of an identified Substance.
 
 openEHR AQL node::
-- `Reaction_mechanism` => `allergyIntolerance.type`
+- `Category_code` => `allergyIntolerance.category`
 
 Datatype Mapping::
 
