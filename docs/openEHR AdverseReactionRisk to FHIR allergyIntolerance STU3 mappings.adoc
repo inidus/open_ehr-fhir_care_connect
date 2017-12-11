@@ -64,8 +64,12 @@ endif::[]
 The following Search criteria must be supported
 
 - `date` (including date ranges)
-- `patient` (via logicalID) and (via NHS Number)
+- `patient.id` (via logicalID)
+- `patient.identifier` (via NHS Number)
 - `verificationStatus` (To be Confirmed after review by Care-Connect)
+- `category`
+- `$current-allergies` - see Named Queries in HAPI-FHIR
+- `$current-drug--allergies`
 
 Implementation will require appropriate AQL construction and or AQL resultSet filtering, for which guidance will be provided.
 
@@ -125,10 +129,11 @@ contains COMPOSITION a[openEHR-EHR-COMPOSITION.adverse_reaction_list.v1]
 contains EVALUATION b_a[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]
 
 where a/name/value='Adverse reaction list'
+-- Optional parameters, depending on FHIR search criteria
 and e/ehr_id/value = '{{fhir.patient.id_param}}'
 and e/ehr_status/subject/external_ref/id/value = '{{fhir.patient.identifier.value.param}}'
 and e/ehr_status/subject/external_ref/namespace =  '{{fhir.patient.identifier.system.param}}'
-and b_a/data[at0001]/items[at0063]/value/defining_code_string = '{{fhir_status_params}}'
+and b_a/data[at0001]/items[at0120]/value/defining_code_string = '{{fhir_category_params}}'
 and b_a/protocol[at0042]/items[at0062]/value/value >= '{{fhir_date_param_min}}'
 and b_a/protocol[at0042]/items[at0062]/value/value <= '{{fhir_date_param_max}}'
 
@@ -218,6 +223,10 @@ Valueset mappings::
 - `at0121::Food` => `food`
 - `at0122::Medication` => `medication`
 - `at0123::Other` => `environment`
+- `at0122::Medication` => `biologic`
+
+
+
 
 
 ==== FHIR node:: `allergyIntolerance.criticality`
@@ -277,7 +286,7 @@ Valueset mappings::
 .. `uk.nhs.nhs_number` => `https://fhir.nhs.uk/Id/nhs-number`
 
 NOTE: We are using the patient's openEHR `ehrId` as the `id` of the FHIR `patient` resource, and using the patient's NHS Number, carried in the openEHR 'ehr' object as `subjectId` as the patient identifier.
-If the subjectNamespace is not `uk.nhs.nhs_number`, it should not be amapped to `https://fhir.nhs.uk/Id/nhs-number` but simply passed through unchanged.
+If the subjectNamespace is not `uk.nhs.nhs_number`, it should not be mapped to `https://fhir.nhs.uk/Id/nhs-number` but simply passed through unchanged.
 
 
 === `allergyIntolerance.lastOccurence`
@@ -431,3 +440,62 @@ Datatype mapping::
 DV_TEXT => Annotation
 
 Valueset mappings:: None
+
+
+==== Alternative FLAT AQL (includes search parameters and dv_coded_text objects)
+
+This flattened form of the AQL avoids use of DV_CODED_TEXT objects.
+
+[source, sql]
+----
+select
+    e/ehr_id/value as ehrId,
+    e/ehr_status/subject/external_ref/id/value as subjectId,
+    e/ehr_status/subject/external_ref/namespace as subjectNamespace,
+    a/uid/value as compositionId,
+    b_a/uid/value as entryId,
+    b_a/data[at0001]/items[at0002]/value/value as Causative_agent_value,
+    b_a/data[at0001]/items[at0002]/value/defining_code/code_string as Causative_agent_code,
+    b_a/data[at0001]/items[at0002]/value/defining_code/terminology_id/value as Causative_agent_terminology,
+    b_a/data[at0001]/items[at0063]/value/defining_code/code_string as Status_code,
+    b_a/data[at0001]/items[at0101]/value/defining_code/code_string as Criticality_code,
+    b_a/data[at0001]/items[at0120]/value/defining_code/code_string as Category_code,
+    b_a/data[at0001]/items[at0117]/value/value as Onset_of_last_reaction,
+    b_a/data[at0001]/items[at0058]/value/defining_code/code_string as Reaction_mechanism_code,
+    b_a/data[at0001]/items[at0006]/value/value as Comment,
+    b_a/protocol[at0042]/items[at0062]/value/value as Adverse_reaction_risk_Last_updated,
+    b_a/data[at0001]/items[at0009]/items[at0010]/value/value as Specific_substance_value,
+    b_a/data[at0001]/items[at0009]/items[at0010]/value/defining_code/code_string as Specific_substance_code,
+    b_a/data[at0001]/items[at0009]/items[at0010]/value/defining_code/terminology_id/value as Specific_substance_terminology,
+    b_a/data[at0001]/items[at0009]/items[at0021]/value/defining_code/code_string as Certainty_code,
+    b_a/data[at0001]/items[at0009]/items[at0011]/value/value as Manifestation_value,
+    b_a/data[at0001]/items[at0009]/items[at0011]/value/defining_code/code_string as Manifestation_code,
+    b_a/data[at0001]/items[at0009]/items[at0011]/value/defining_code/terminology_id/value as Manifestation_terminology,
+    b_a/data[at0001]/items[at0009]/items[at0012]/value/value as Reaction_description,
+    b_a/data[at0001]/items[at0009]/items[at0027]/value/value as Onset_of_reaction,
+    b_a/data[at0001]/items[at0009]/items[at0089]/value/defining_code/code_string as Severity_code,
+    b_a/data[at0001]/items[at0009]/items[at0106]/value/value as Route_of_exposure_value,
+      b_a/data[at0001]/items[at0009]/items[at0106]/value/defining_code/code_string as Route_of_exposure_code,
+        b_a/data[at0001]/items[at0009]/items[at0106]/value/defining_code/terminology_id/value as Route_of_exposure_terminology,
+    b_a/data[at0001]/items[at0009]/items[at0032]/value/value as Adverse_reaction_risk_Comment
+from EHR e
+
+contains COMPOSITION a[openEHR-EHR-COMPOSITION.adverse_reaction_list.v1]
+contains EVALUATION b_a[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]
+
+where a/name/value='Adverse reaction list'
+-- Optional parameters, depending on FHIR search criteria
+and e/ehr_id/value = '{{fhir.patient.id_param}}'
+and e/ehr_status/subject/external_ref/id/value = '{{fhir.patient.identifier.value.param}}'
+and e/ehr_status/subject/external_ref/namespace =  '{{fhir.patient.identifier.system.param}}'
+and b_a/data[at0001]/items[at0120]/value/defining_code_string = '{{fhir_category_params}}'
+and b_a/protocol[at0042]/items[at0062]/value/value >= '{{fhir_date_param_min}}'
+and b_a/protocol[at0042]/items[at0062]/value/value <= '{{fhir_date_param_max}}'
+
+----
+
+=== FHIR Narrative block
+
+This is optional in Care-Connect but is good practice.
+
+NOTE:: TBD

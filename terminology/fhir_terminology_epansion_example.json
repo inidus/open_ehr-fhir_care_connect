@@ -1,0 +1,568 @@
+{
+    "resourceType": "ValueSet",
+    "id": "fhir_sct_vs_142321000036106",
+    "url": "http://its.patientsfirst.org.nz/ValueSet/sct/fhir_sct_vs_142321000036106",
+    "version": "http://snomed.info/sct?version=http://snomed.info/sct/900000000000207008/version/20170731",
+    "name": "SNOMED CT Reference Set: 142321000036106",
+    "status": "draft",
+    "experimental": true,
+    "date": "2017-12-04",
+    "publisher": "Patients First Ltd",
+    "contact": [
+        {
+            "telecom": [
+                {
+                    "system": "email",
+                    "value": "peter.jordan@patientsfirst.org.nz"
+                }
+            ]
+        }
+    ],
+    "description": "All SNOMED CT codes in the Reference Set: 142321000036106",
+    "copyright": "copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO)",
+    "extensible": false,
+    "expansion": {
+        "identifier": "urn:uuid:be65433e-813b-4daf-bab8-a47b856737d4",
+        "timestamp": "2017-12-04",
+        "total": 1117,
+        "offset": 0,
+        "parameter": [
+            {
+                "name": "expansion-source",
+                "valueString": "http://its.patientsfirst.org.nz/ValueSet/sct/fhir_sct_vs_142321000036106"
+            },
+            {
+                "name": "version",
+                "valueUri": "http://snomed.info/sct?version=http://snomed.info/sct/900000000000207008/version/20170731"
+            }
+        ],
+        "contains": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "76743004",
+                "display": "^99^Technetium"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "259333003",
+                "display": "1,25-Dihydroxyvitamin D3"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "256123000",
+                "display": "1,6-Hexamethylene di-isocyanate"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387005008",
+                "display": "Abacavir"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "421777009",
+                "display": "Abatacept"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "386951001",
+                "display": "Abciximab"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "43987000",
+                "display": "Acacia"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "391698009",
+                "display": "Acamprosate"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "38705000",
+                "display": "Acetaldehyde"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372709008",
+                "display": "Acetazolamide"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387440002",
+                "display": "Acetylcysteine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372729009",
+                "display": "Aciclovir"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "386938006",
+                "display": "Acitretin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "407317001",
+                "display": "Adalimumab"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "412072006",
+                "display": "Adefovir"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "76711004",
+                "display": "Adenosine triphosphate"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "418920007",
+                "display": "Adhesive agent"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "14423008",
+                "display": "Adhesive bandage"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "84756000",
+                "display": "Adhesive tape"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387362001",
+                "display": "Adrenaline"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "40789008",
+                "display": "Adrenocorticotropic hormone"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387558006",
+                "display": "Albendazole"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "52454007",
+                "display": "Albumin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "53527002",
+                "display": "Alcoholic beverage"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "350242003",
+                "display": "Alcoholic disinfectant"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "391726005",
+                "display": "Alcuronium chloride"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "129472003",
+                "display": "Alemtuzumab"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "96290008",
+                "display": "Alendronate"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "227212002",
+                "display": "Alfalfa sprout"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387560008",
+                "display": "Alfentanil"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "395954002",
+                "display": "Alfuzosin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387135004",
+                "display": "Allopurinol"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "227375005",
+                "display": "Allspice"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "256350002",
+                "display": "Almond"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "391739009",
+                "display": "Aloe"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "3340007",
+                "display": "alpha-Amylase"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "386983007",
+                "display": "Alprazolam"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "96294004",
+                "display": "Alprenolol"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387152000",
+                "display": "Alteplase"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372763006",
+                "display": "Amantadine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "428159003",
+                "display": "Ambrisentan"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "386923005",
+                "display": "Amifostine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387266001",
+                "display": "Amikacin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387503008",
+                "display": "Amiloride"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "14443002",
+                "display": "Aminoglycoside -class of antibiotic-"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "373508009",
+                "display": "Aminophylline"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372821002",
+                "display": "Amiodarone"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "391761004",
+                "display": "Amisulpride"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372726002",
+                "display": "Amitriptyline"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "386864001",
+                "display": "Amlodipine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372687004",
+                "display": "Amoxicillin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "77703004",
+                "display": "Amphotericin B"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387170002",
+                "display": "Ampicillin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "373266007",
+                "display": "Anaesthetic"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "386910003",
+                "display": "Anastrozole"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372913009",
+                "display": "Angiotensin II receptor antagonist"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372733002",
+                "display": "Angiotensin-converting enzyme inhibitor agent"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "264287008",
+                "display": "Animal dander"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "256406004",
+                "display": "Animal epithelium"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "82566005",
+                "display": "Animal feed"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "276310004",
+                "display": "Animal hair"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "256363008",
+                "display": "Animal material"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "227376006",
+                "display": "Anise seed"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372794006",
+                "display": "Antacid"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372813008",
+                "display": "Antiarrhythmic agent"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "419241000",
+                "display": "Antibacterial agent"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "373246003",
+                "display": "Anticholinergic agent"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372862008",
+                "display": "Anticoagulant"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "255632006",
+                "display": "Anticonvulsant"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372720008",
+                "display": "Antidepressant"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "52017007",
+                "display": "Antiemetic"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372806008",
+                "display": "Antihistamine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "330901000",
+                "display": "Anti-inflammatory preparations"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372482001",
+                "display": "Anti-psychotic agent"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "88279005",
+                "display": "Anti-rheumatic agent"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "32583002",
+                "display": "Antiseborrheic drug"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "398809003",
+                "display": "Antivenin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "256311001",
+                "display": "Apple - dietary"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "261277008",
+                "display": "Apricot - dietary"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "406784005",
+                "display": "Aripiprazole"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "432410005",
+                "display": "Artesunate"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "116274004",
+                "display": "Artificial sweetener"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "43706004",
+                "display": "Ascorbic acid"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "443375003",
+                "display": "Asenapine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "227218003",
+                "display": "Asparagus"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387458008",
+                "display": "Aspirin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387333002",
+                "display": "Astemizole"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "413592000",
+                "display": "Atazanavir"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387506000",
+                "display": "Atenolol"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "407037005",
+                "display": "Atomoxetine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "373444002",
+                "display": "Atorvastatin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "72752006",
+                "display": "Atracurium besilate"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372832002",
+                "display": "Atropine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "418571002",
+                "display": "Attenuated Bacillus Calmette Guerin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "227219006",
+                "display": "Aubergine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "260139004",
+                "display": "Australian pine pollen"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "260190003",
+                "display": "Avocado - dietary"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372662006",
+                "display": "Azatadine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372574004",
+                "display": "Azathioprine"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387531004",
+                "display": "Azithromycin"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "387342009",
+                "display": "Baclofen"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "256307007",
+                "display": "Banana"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "63995005",
+                "display": "Bandage"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "372798009",
+                "display": "Barbiturate"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "278839003",
+                "display": "Barley - dietary"
+            }
+
+        ]
+    }
+}

@@ -1,0 +1,716 @@
+{
+    "meta": {
+        "href": "http://test.operon.systems/rest/v1/composition/03186bc1-1d49-4952-891a-954fac1529dc::hcbox.oprn.ehrscape.com::1"
+    },
+    "format": "RAW",
+    "templateId": "IDCR - Adverse Reaction List.v1",
+    "composition": {
+        "@class": "COMPOSITION",
+        "name": {
+            "@class": "DV_TEXT",
+            "value": "Adverse reaction list"
+        },
+        "uid": {
+            "@class": "OBJECT_VERSION_ID",
+            "value": "03186bc1-1d49-4952-891a-954fac1529dc::hcbox.oprn.ehrscape.com::1"
+        },
+        "archetype_details": {
+            "@class": "ARCHETYPED",
+            "archetype_id": {
+                "@class": "ARCHETYPE_ID",
+                "value": "openEHR-EHR-COMPOSITION.adverse_reaction_list.v1"
+            },
+            "template_id": {
+                "@class": "TEMPLATE_ID",
+                "value": "IDCR - Adverse Reaction List.v1"
+            },
+            "rm_version": "1.0.1"
+        },
+        "archetype_node_id": "openEHR-EHR-COMPOSITION.adverse_reaction_list.v1",
+        "language": {
+            "@class": "CODE_PHRASE",
+            "terminology_id": {
+                "@class": "TERMINOLOGY_ID",
+                "value": "ISO_639-1"
+            },
+            "code_string": "en"
+        },
+        "territory": {
+            "@class": "CODE_PHRASE",
+            "terminology_id": {
+                "@class": "TERMINOLOGY_ID",
+                "value": "ISO_3166-1"
+            },
+            "code_string": "GB"
+        },
+        "category": {
+            "@class": "DV_CODED_TEXT",
+            "value": "event",
+            "defining_code": {
+                "@class": "CODE_PHRASE",
+                "terminology_id": {
+                    "@class": "TERMINOLOGY_ID",
+                    "value": "openehr"
+                },
+                "code_string": "433"
+            }
+        },
+        "composer": {
+            "@class": "PARTY_IDENTIFIED",
+            "name": "Dr Ian Smith"
+        },
+        "context": {
+            "@class": "EVENT_CONTEXT",
+            "start_time": {
+                "@class": "DV_DATE_TIME",
+                "value": "2016-12-20T00:11:02.518+02:00"
+            },
+            "setting": {
+                "@class": "DV_CODED_TEXT",
+                "value": "other care",
+                "defining_code": {
+                    "@class": "CODE_PHRASE",
+                    "terminology_id": {
+                        "@class": "TERMINOLOGY_ID",
+                        "value": "openehr"
+                    },
+                    "code_string": "238"
+                }
+            },
+            "health_care_facility": {
+                "@class": "PARTY_IDENTIFIED",
+                "external_ref": {
+                    "@class": "PARTY_REF",
+                    "id": {
+                        "@class": "GENERIC_ID",
+                        "value": "999999-345",
+                        "scheme": "2.16.840.1.113883.2.1.4.3"
+                    },
+                    "namespace": "NHS-UK",
+                    "type": "PARTY"
+                },
+                "name": "Home"
+            }
+        },
+        "content": [
+            {
+                "@class": "SECTION",
+                "name": {
+                    "@class": "DV_TEXT",
+                    "value": "Allergies and adverse reactions"
+                },
+                "archetype_details": {
+                    "@class": "ARCHETYPED",
+                    "archetype_id": {
+                        "@class": "ARCHETYPE_ID",
+                        "value": "openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1"
+                    },
+                    "rm_version": "1.0.1"
+                },
+                "archetype_node_id": "openEHR-EHR-SECTION.allergies_adverse_reactions_rcp.v1",
+                "items": [
+                    {
+                        "@class": "EVALUATION",
+                        "name": {
+                            "@class": "DV_TEXT",
+                            "value": "Adverse reaction risk"
+                        },
+                        "uid": {
+                            "@class": "HIER_OBJECT_ID",
+                            "value": "96244c79-31f7-485e-98e0-7da00dd4018b"
+                        },
+                        "archetype_details": {
+                            "@class": "ARCHETYPED",
+                            "archetype_id": {
+                                "@class": "ARCHETYPE_ID",
+                                "value": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1"
+                            },
+                            "rm_version": "1.0.1"
+                        },
+                        "archetype_node_id": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1",
+                        "language": {
+                            "@class": "CODE_PHRASE",
+                            "terminology_id": {
+                                "@class": "TERMINOLOGY_ID",
+                                "value": "ISO_639-1"
+                            },
+                            "code_string": "en"
+                        },
+                        "encoding": {
+                            "@class": "CODE_PHRASE",
+                            "terminology_id": {
+                                "@class": "TERMINOLOGY_ID",
+                                "value": "IANA_character-sets"
+                            },
+                            "code_string": "UTF-8"
+                        },
+                        "subject": {
+                            "@class": "PARTY_SELF"
+                        },
+                        "protocol": {
+                            "@class": "ITEM_TREE",
+                            "name": {
+                                "@class": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "archetype_node_id": "at0042",
+                            "items": [
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Last updated"
+                                    },
+                                    "archetype_node_id": "at0062",
+                                    "value": {
+                                        "@class": "DV_DATE_TIME",
+                                        "value": "2017-12-07T15:47:43.073+01:00"
+                                    }
+                                }
+                            ]
+                        },
+                        "data": {
+                            "@class": "ITEM_TREE",
+                            "name": {
+                                "@class": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "archetype_node_id": "at0001",
+                            "items": [
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Causative agent"
+                                    },
+                                    "archetype_node_id": "at0002",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "allergy to penicillin",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "SNOMED-CT"
+                                            },
+                                            "code_string": "91936005"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Status"
+                                    },
+                                    "archetype_node_id": "at0063",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "Suspected",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "local"
+                                            },
+                                            "code_string": "at0127"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Criticality"
+                                    },
+                                    "archetype_node_id": "at0101",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "High",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "local"
+                                            },
+                                            "code_string": "at0103"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Category"
+                                    },
+                                    "archetype_node_id": "at0120",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "Medication",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "local"
+                                            },
+                                            "code_string": "at0122"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Onset of last reaction"
+                                    },
+                                    "archetype_node_id": "at0117",
+                                    "value": {
+                                        "@class": "DV_DATE_TIME",
+                                        "value": "2017-12-07T15:47:43.072+01:00"
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Reaction mechanism"
+                                    },
+                                    "archetype_node_id": "at0058",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "Indeterminate",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "local"
+                                            },
+                                            "code_string": "at0126"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Comment"
+                                    },
+                                    "archetype_node_id": "at0006",
+                                    "value": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Not observed/confirmed but seems likely"
+                                    }
+                                },
+                                {
+                                    "@class": "CLUSTER",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Reaction details"
+                                    },
+                                    "archetype_node_id": "at0009",
+                                    "items": [
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Specific substance"
+                                            },
+                                            "archetype_node_id": "at0010",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "Phenoxymethylpenicillin 250mg tablets",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "SNOMED-CT"
+                                                    },
+                                                    "code_string": "323416001"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Certainty"
+                                            },
+                                            "archetype_node_id": "at0021",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "Confirmed",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "local"
+                                                    },
+                                                    "code_string": "at0118"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Manifestation"
+                                            },
+                                            "archetype_node_id": "at0011",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "eruption due to drug",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "SNOMED-CT"
+                                                    },
+                                                    "code_string": "28926001"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Reaction description"
+                                            },
+                                            "archetype_node_id": "at0012",
+                                            "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Marked masculo-papular rash on extermities"
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Onset of reaction"
+                                            },
+                                            "archetype_node_id": "at0027",
+                                            "value": {
+                                                "@class": "DV_DATE_TIME",
+                                                "value": "2017-12-07T00:00:00+01:00"
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Severity"
+                                            },
+                                            "archetype_node_id": "at0089",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "Moderate",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "local"
+                                                    },
+                                                    "code_string": "at0092"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Comment"
+                                            },
+                                            "archetype_node_id": "at0032",
+                                            "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "History unclear - reported by mum"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "@class": "EVALUATION",
+                        "name": {
+                            "@class": "DV_TEXT",
+                            "value": "Adverse reaction risk #2"
+                        },
+                        "uid": {
+                            "@class": "HIER_OBJECT_ID",
+                            "value": "cbf80bf1-ee3a-4599-b74f-132965da5bcd"
+                        },
+                        "archetype_details": {
+                            "@class": "ARCHETYPED",
+                            "archetype_id": {
+                                "@class": "ARCHETYPE_ID",
+                                "value": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1"
+                            },
+                            "rm_version": "1.0.1"
+                        },
+                        "archetype_node_id": "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1",
+                        "language": {
+                            "@class": "CODE_PHRASE",
+                            "terminology_id": {
+                                "@class": "TERMINOLOGY_ID",
+                                "value": "ISO_639-1"
+                            },
+                            "code_string": "en"
+                        },
+                        "encoding": {
+                            "@class": "CODE_PHRASE",
+                            "terminology_id": {
+                                "@class": "TERMINOLOGY_ID",
+                                "value": "IANA_character-sets"
+                            },
+                            "code_string": "UTF-8"
+                        },
+                        "subject": {
+                            "@class": "PARTY_SELF"
+                        },
+                        "protocol": {
+                            "@class": "ITEM_TREE",
+                            "name": {
+                                "@class": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "archetype_node_id": "at0042",
+                            "items": [
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Last updated"
+                                    },
+                                    "archetype_node_id": "at0062",
+                                    "value": {
+                                        "@class": "DV_DATE_TIME",
+                                        "value": "2017-12-07T15:47:43.073+01:00"
+                                    }
+                                }
+                            ]
+                        },
+                        "data": {
+                            "@class": "ITEM_TREE",
+                            "name": {
+                                "@class": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "archetype_node_id": "at0001",
+                            "items": [
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Causative agent"
+                                    },
+                                    "archetype_node_id": "at0002",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "Erythromycin",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "SNOMED-CT"
+                                            },
+                                            "code_string": "304270095"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Status"
+                                    },
+                                    "archetype_node_id": "at0063",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "Suspected",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "local"
+                                            },
+                                            "code_string": "at0127"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Criticality"
+                                    },
+                                    "archetype_node_id": "at0101",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "Indeterminate",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "local"
+                                            },
+                                            "code_string": "at0124"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "ELEMENT",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Category"
+                                    },
+                                    "archetype_node_id": "at0120",
+                                    "value": {
+                                        "@class": "DV_CODED_TEXT",
+                                        "value": "Medication",
+                                        "defining_code": {
+                                            "@class": "CODE_PHRASE",
+                                            "terminology_id": {
+                                                "@class": "TERMINOLOGY_ID",
+                                                "value": "local"
+                                            },
+                                            "code_string": "at0122"
+                                        }
+                                    }
+                                },
+                                {
+                                    "@class": "CLUSTER",
+                                    "name": {
+                                        "@class": "DV_TEXT",
+                                        "value": "Reaction details"
+                                    },
+                                    "archetype_node_id": "at0009",
+                                    "items": [
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Specific substance"
+                                            },
+                                            "archetype_node_id": "at0010",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "erythromycin 250mg gastro-resistant tablets",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "SNOMED-CT"
+                                                    },
+                                                    "code_string": "324209006"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Certainty"
+                                            },
+                                            "archetype_node_id": "at0021",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "Confirmed",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "local"
+                                                    },
+                                                    "code_string": "at0118"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Manifestation"
+                                            },
+                                            "archetype_node_id": "at0011",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "Vomiting",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "SNOMED-CT"
+                                                    },
+                                                    "code_string": "422400008"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Reaction description"
+                                            },
+                                            "archetype_node_id": "at0012",
+                                            "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Vomited for several hours, no evident blood"
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Onset of reaction"
+                                            },
+                                            "archetype_node_id": "at0027",
+                                            "value": {
+                                                "@class": "DV_DATE_TIME",
+                                                "value": "2017-12-07T00:00:00+01:00"
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Route of exposure"
+                                            },
+                                            "archetype_node_id": "at0106",
+                                            "value": {
+                                                "@class": "DV_CODED_TEXT",
+                                                "value": "Oral route",
+                                                "defining_code": {
+                                                    "@class": "CODE_PHRASE",
+                                                    "terminology_id": {
+                                                        "@class": "TERMINOLOGY_ID",
+                                                        "value": "SNOMED-CT"
+                                                    },
+                                                    "code_string": "26643006"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "@class": "ELEMENT",
+                                            "name": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Comment"
+                                            },
+                                            "archetype_node_id": "at0032",
+                                            "value": {
+                                                "@class": "DV_TEXT",
+                                                "value": "Reported by patient's carer"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "deleted": false,
+    "lastVersion": true
+}
