@@ -485,7 +485,7 @@ select
     e/ehr_status/subject/external_ref/id/value as subjectId,
     e/ehr_status/subject/external_ref/namespace as subjectNamespace,
     a/composer/name as composerName,
-    a/composer/external_ref/id/value as composerIdentifier,
+    a/composer/external_ref/id/value as composerId,
     a/composer/external_ref/namespace as composerNamespace,
     a/uid/value as compositionId,
     b_a/uid/value as entryId,
