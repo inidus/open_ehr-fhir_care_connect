@@ -45,7 +45,7 @@ endif::[]
 
 - `onset.onsetDateTime`
 
-- `recorder`
+- `asserter`
 
 - `lastOccurence`
 - `note`
@@ -106,6 +106,9 @@ select
     e/ehr_status/subject/external_ref/id/value as subjectId,
     e/ehr_status/subject/external_ref/namespace as subjectNamespace,
     a/uid/value as compositionId,
+    a/composer/name as composerName,
+    a/composer/external_ref/id/value as composerIdentifier,
+    a/composer/external_ref/namespace as composerNamespace,
     b_a/uid/value as entryId,
     b_a/data[at0001]/items[at0002]/value as Causative_agent,
     b_a/data[at0001]/items[at0063]/value/defining_code/code_string as Status_code,
@@ -442,6 +445,35 @@ DV_TEXT => Annotation
 Valueset mappings:: None
 
 
+=== `allergyIntolerance.asserter.name`
+
+FHIR Description::  - The name of the person asserting the allergy.
+
+openEHR AQL node::
+
+`composerName` => `allergyIntolerance.asserter.name`
+
+Datatype mapping::
+
+DV_TEXT => string
+
+Valueset mappings:: None
+
+=== `allergyIntolerance.asserter.identifier.value`
+
+FHIR Description::  - The identifier of the person asserting the allergy.
+
+openEHR AQL node::
+
+`composerIdentifier` => `allergyIntolerance.asserter.identifier.value`
+`composerNamespace` => `allergyIntolerance.asserter.identifier.system`
+
+Datatype mapping::
+
+DV_TEXT => String
+
+Valueset mappings:: None
+
 ==== Alternative FLAT AQL (includes search parameters and dv_coded_text objects)
 
 This flattened form of the AQL avoids use of DV_CODED_TEXT objects.
@@ -452,6 +484,9 @@ select
     e/ehr_id/value as ehrId,
     e/ehr_status/subject/external_ref/id/value as subjectId,
     e/ehr_status/subject/external_ref/namespace as subjectNamespace,
+    a/composer/name as composerName,
+    a/composer/external_ref/id/value as composerIdentifier,
+    a/composer/external_ref/namespace as composerNamespace,
     a/uid/value as compositionId,
     b_a/uid/value as entryId,
     b_a/data[at0001]/items[at0002]/value/value as Causative_agent_value,
