@@ -109,6 +109,7 @@ select
     a/composer/name as composerName,
     a/composer/external_ref/id/value as composerIdentifier,
     a/composer/external_ref/namespace as composerNamespace,
+    a/context/start_time/value as compositionStartTime,
     b_a/uid/value as entryId,
     b_a/data[at0001]/items[at0002]/value as Causative_agent,
     b_a/data[at0001]/items[at0063]/value/defining_code/code_string as Status_code,
@@ -310,6 +311,11 @@ openEHR AQL node::
 
 `Adverse_reaction_risk_Last_updated` => `allergyIntolerance.assertedDate`
 
+if `Adverse_reaction_risk_Last_updated` is null
+ `compositionStartTime` => `allergyIntolerance.assertedDate`
+
+NOTE: Where the last Updated date is null the start_time attribute of the parent composition is a safe proxy.
+
 Datatype mapping::
 
 DV_DATE_TIME => dateTime
@@ -488,6 +494,7 @@ select
     a/composer/external_ref/id/value as composerId,
     a/composer/external_ref/namespace as composerNamespace,
     a/uid/value as compositionId,
+    a/context/start_time/value as compositionStartTime,
     b_a/uid/value as entryId,
     b_a/data[at0001]/items[at0002]/value/value as Causative_agent_value,
     b_a/data[at0001]/items[at0002]/value/defining_code/code_string as Causative_agent_code,
